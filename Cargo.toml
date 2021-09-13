@@ -1,0 +1,16 @@
+[package]
+edition = "2018"
+name = "adminpw"
+version = "0.1.1"
+authors = [ "Ithariel <jw+git@ichwillne.info" ]
+
+[dependencies]
+passwords = "1"
+sqlx = {version = "*", features = ["runtime-async-std-rustls", "any"]}
+async-std = { version = "1", features = [ "attributes" ] }
+
+
+[features]
+default = ["sqlite", "mysql"]
+mysql = ["sqlx/mysql"]
+sqlite = ["sqlx/sqlite"]
